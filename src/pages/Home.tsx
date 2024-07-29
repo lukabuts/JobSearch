@@ -15,6 +15,9 @@ const Home: React.FC<HomeProps> = ({
   errorMsg,
   lastUpdate,
   count,
+  geo,
+  industry,
+  tag,
 }) => {
   const jobs = useContext(JobsContext);
   const isLoading = useContext(IsLoadingContext);
@@ -26,6 +29,10 @@ const Home: React.FC<HomeProps> = ({
         setGeo={setGeo}
         setIndustry={setIndustry}
         setTag={setTag}
+        count={count}
+        geo={geo}
+        industry={industry}
+        tag={tag}
       />
       {isLoading ? (
         <div className="mt-12 space-y-4">

@@ -29,7 +29,7 @@ export const JobDetails: React.FC<jobDetailsProps> = ({ jobGeo, pubDate }) => {
   const currentDate = new Date();
   return (
     <>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 max-w-24">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

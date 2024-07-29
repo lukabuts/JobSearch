@@ -28,6 +28,7 @@ function App() {
     }${geo ? `&geo=${geo}` : ""}${industry ? `&industry=${industry}` : ""}${
       tag ? `&tag=${tag}` : ""
     }`;
+    console.log(url);
 
     axios
       .get(url)
@@ -80,10 +81,13 @@ function App() {
                   errorMsg={errorMsg}
                   lastUpdate={lastUpdate}
                   count={count}
+                  geo={geo}
+                  industry={industry}
+                  tag={tag}
                 />
               }
             />
-            <Route path={"/jobs/*"} element={<DetailedJob />} />
+            <Route path={"/jobs/:id"} element={<DetailedJob />} />
 
             <Route path="*" element={<NotFound page="Page" />} />
           </Routes>

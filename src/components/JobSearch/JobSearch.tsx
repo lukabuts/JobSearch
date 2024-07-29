@@ -10,9 +10,17 @@ const JobSearch: React.FC<JobSearchProps> = ({
   setGeo,
   setIndustry,
   setTag,
+  count,
+  geo,
+  industry,
+  tag,
 }) => {
   const [industries, setIndustries] = useState<IndustryType[]>([]);
   const [geos, setGeos] = useState<GeoOptionsTypes[]>([]);
+
+  useEffect(() => {
+    console.log(geo, industry);
+  }, [geo, industry]);
 
   useEffect(() => {
     const fetchIndustries = axios.get(
@@ -50,6 +58,7 @@ const JobSearch: React.FC<JobSearchProps> = ({
               id="count"
               max="50"
               min="1"
+              value={count}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setCount(Number(e.target.value.trim()));
               }}
@@ -61,7 +70,7 @@ const JobSearch: React.FC<JobSearchProps> = ({
             onInput={(e: React.ChangeEvent<HTMLSelectElement>) => {
               setGeo(e.target.value);
             }}
-            defaultValue={""}
+            value={geo}
             className="flex-1 p-1"
           >
             <option value="">Anywhere</option>
@@ -79,7 +88,7 @@ const JobSearch: React.FC<JobSearchProps> = ({
             onInput={(e: React.ChangeEvent<HTMLSelectElement>) => {
               setIndustry(e.target.value);
             }}
-            defaultValue={""}
+            value={industry}
             className="flex-1 p-1"
           >
             <option value="">Any Industry</option>
@@ -98,6 +107,7 @@ const JobSearch: React.FC<JobSearchProps> = ({
               type="text"
               name="tag"
               id="tag"
+              value={tag}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setTag(e.target.value.trim());
               }}

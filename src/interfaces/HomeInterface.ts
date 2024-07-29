@@ -7,4 +7,7 @@ export interface HomeProps {
   errorMsg: string;
   lastUpdate: string;
   count: number;
+  geo: string;
+  industry: string;
+  tag: string;
 }

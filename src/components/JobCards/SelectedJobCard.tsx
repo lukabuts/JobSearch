@@ -45,10 +45,10 @@ const SelectedJobCard: React.FC<JobCardProps> = ({ job }) => {
         </div>
         <div className="flex items-center gap-10 justify-between">
           <div className="flex flex-col justify-center gap-2">
-            <ul className="gap-4 flex items-center">
+            <ul className="flex flex-col justify-center gap-2">
               {job.jobType.map((type: string, index: number) => (
                 <li
-                  className="text-green-600 bg-green-100 text-xs font-bold p-1 rounded-md text-center"
+                  className="text-green-600 bg-green-100 text-xs font-bold p-1 rounded-md text-center w-fit"
                   key={index}
                   title="Type"
                 >
