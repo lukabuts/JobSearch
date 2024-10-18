@@ -12,7 +12,7 @@ export const IsLoadingContext = createContext<boolean>(false);
 
 function App() {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [count, setCount] = useState<number>(50);
+  const [count, setCount] = useState<string>("50");
   const [geo, setGeo] = useState<string>("");
   const [industry, setIndustry] = useState<string>("");
   const [tag, setTag] = useState<string>("");
@@ -22,9 +22,13 @@ function App() {
 
   const { pathname } = useLocation();
   function getData() {
+    if (isNaN(Number(count))) {
+      setErrorMsg("'count' parameter should be a number");
+      return;
+    }
     setIsLoading(true);
     const url = `https://jobicy.com/api/v2/remote-jobs?${
-      count && count !== 50 ? `count=${count}` : ""
+      count && Number(count) !== 50 ? `count=${count}` : ""
     }${geo ? `&geo=${geo}` : ""}${industry ? `&industry=${industry}` : ""}${
       tag ? `&tag=${tag}` : ""
     }`;

@@ -57,10 +57,10 @@ const JobSearch: React.FC<JobSearchProps> = ({
               name="count"
               id="count"
               max="50"
-              min="1"
+              min="0"
               value={count}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setCount(Number(e.target.value.trim()));
+                setCount(e.target.value);
               }}
               className="border hover:bg-gray-50 focus:bg-gray-50 transition-colors flex-1 px-1"
             />

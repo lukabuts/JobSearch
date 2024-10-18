@@ -36,7 +36,7 @@ const Home: React.FC<HomeProps> = ({
       />
       {isLoading ? (
         <div className="mt-12 space-y-4">
-          {[...Array(count)].map((_, index) => (
+          {[...Array(Number(count))].map((_, index) => (
             <LoadingPulse key={index} />
           ))}
         </div>
